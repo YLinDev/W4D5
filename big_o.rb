@@ -43,7 +43,7 @@ list = [2, 3, -6, 7, -6, 7]
 # p subsum(list) # => 8 (from [7, -6, 7])
 
 
-def subsum2(list) #O(n^2)
+def subsum2(list) #O(n)
     max = list[0]
     current = list[0]
     (1...list.length).each do |i|
@@ -62,5 +62,12 @@ def subsum2(list) #O(n^2)
     max
 end
 
-p subsum2(list) # => 8 (from [7, -6, 7])
+#p subsum2(list) # => 8 (from [7, -6, 7])
 
+def first_anagram?(str1, str2)
+    if str1.length <= 0 
+        return [str1]
+    end
+    output = []
+    
+end
