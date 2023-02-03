@@ -65,9 +65,41 @@ end
 #p subsum2(list) # => 8 (from [7, -6, 7])
 
 def first_anagram?(str1, str2)
-    if str1.length <= 0 
-        return [str1]
-    end
     output = []
     
+    arr = str1.chars
+    arr.permutation.to_a.each do |subarray|
+        output << subarray.join('')
+    end
+    output.include?(str2)
 end
+
+p first_anagram?('abc', 'acb')
+
+
+# def anagram_array(str)
+#     result = []
+
+#     (0...str.length).each do |i|
+#         (i + 1...str.length).each do |j|
+#             result << str[i..j]
+#         end
+#     end
+#     result
+# end
+
+# p anagram_array('elvis')
+
+# def anagram_array_rec(str)
+#     return [str] if str.length <= 1
+
+#     memo = anagram_array_rec(str[0..-2])
+
+#     output = []
+#     str
+
+
+
+# end
+
+# p anagram_array_rec('a')
