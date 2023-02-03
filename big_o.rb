@@ -39,5 +39,28 @@ end
 
 
 
-list = [-2, -1, -6, -7, -6, -7]
-p subsum(list) # => 8 (from [7, -6, 7])
+list = [2, 3, -6, 7, -6, 7]
+# p subsum(list) # => 8 (from [7, -6, 7])
+
+
+def subsum2(list) #O(n^2)
+    max = list[0]
+    current = list[0]
+    (1...list.length).each do |i|
+        ele = list[i]
+        
+        if ele < 0 && current + ele < 0
+            current = 0
+        else
+           current += ele 
+        end
+
+        if current > max
+            max = current
+        end
+    end
+    max
+end
+
+p subsum2(list) # => 8 (from [7, -6, 7])
+
