@@ -20,20 +20,24 @@ end
 
 # p my_min2(list)  # =>  -5
 
-def subsum(list)
-    max = list[0]
+def subsum(list) #O(n^2)
+    subarrays = []
     (0...list.length).each do |i|
         # if max < list[0..i].sum
         #     max = list[0..i].sum
         # end
         (i...list.length).each do |j|
-            if max < list[i..j].sum
-                max = list[i..j].sum
-            end
+            #if max < list[i..j].sum
+            #     max = list[i..j].sum
+            # end
+            subarrays << list[i..j]
         end
     end
-    max
+    subarrays.map! {|subarray| subarray.sum}
+    return subarrays.max
 end
+
+
 
 list = [-2, -1, -6, -7, -6, -7]
 p subsum(list) # => 8 (from [7, -6, 7])
